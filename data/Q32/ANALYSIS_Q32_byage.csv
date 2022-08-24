@@ -1,0 +1,49 @@
+"question","byvar","var","varname","%negative","%neutral","%positive"
+"q32a","age_band_6","17-24","I was aware of the help, care and support options available to me",26,24.8,49.1
+"q32a","age_band_6","25-34","I was aware of the help, care and support options available to me",32,22.4,45.6
+"q32a","age_band_6","35-44","I was aware of the help, care and support options available to me",29.5,22.4,48.1
+"q32a","age_band_6","45-54","I was aware of the help, care and support options available to me",27.3,22.6,50.1
+"q32a","age_band_6","55-64","I was aware of the help, care and support options available to me",25.4,26,48.6
+"q32a","age_band_6","65 plus","I was aware of the help, care and support options available to me",19.1,22.2,58.8
+"q32b","age_band_6","17-24","I had a say in how my help, care or support was provided",21.7,27.6,50.8
+"q32b","age_band_6","25-34","I had a say in how my help, care or support was provided",23.8,29.5,46.7
+"q32b","age_band_6","35-44","I had a say in how my help, care or support was provided",20.4,28.8,50.8
+"q32b","age_band_6","45-54","I had a say in how my help, care or support was provided",19.1,27.6,53.3
+"q32b","age_band_6","55-64","I had a say in how my help, care or support was provided",19.8,30.4,49.8
+"q32b","age_band_6","65 plus","I had a say in how my help, care or support was provided",16.1,23.8,60.1
+"q32c","age_band_6","17-24","People took account of the things that mattered to me",17.9,23.2,59
+"q32c","age_band_6","25-34","People took account of the things that mattered to me",17.7,27,55.2
+"q32c","age_band_6","35-44","People took account of the things that mattered to me",17.4,24.2,58.4
+"q32c","age_band_6","45-54","People took account of the things that mattered to me",15.9,25.9,58.2
+"q32c","age_band_6","55-64","People took account of the things that mattered to me",16.4,28.4,55.2
+"q32c","age_band_6","65 plus","People took account of the things that mattered to me",10.7,21.6,67.7
+"q32d","age_band_6","17-24","I was treated with compassion and understanding",11.6,21,67.5
+"q32d","age_band_6","25-34","I was treated with compassion and understanding",12.8,24.7,62.5
+"q32d","age_band_6","35-44","I was treated with compassion and understanding",13.3,20.8,65.9
+"q32d","age_band_6","45-54","I was treated with compassion and understanding",11.1,22.8,66.2
+"q32d","age_band_6","55-64","I was treated with compassion and understanding",11.6,23.5,65
+"q32d","age_band_6","65 plus","I was treated with compassion and understanding",7,17.7,75.2
+"q32e","age_band_6","17-24","I felt safe",11.2,20.6,68.2
+"q32e","age_band_6","25-34","I felt safe",12.6,24.5,62.9
+"q32e","age_band_6","35-44","I felt safe",13.3,24.6,62.1
+"q32e","age_band_6","45-54","I felt safe",11.7,25.7,62.6
+"q32e","age_band_6","55-64","I felt safe",13.9,25,61.1
+"q32e","age_band_6","65 plus","I felt safe",7.7,19,73.4
+"q32f","age_band_6","17-24"," I was supported to live as independently as possible",16,27.6,56.5
+"q32f","age_band_6","25-34"," I was supported to live as independently as possible",15.7,26.3,58.1
+"q32f","age_band_6","35-44"," I was supported to live as independently as possible",15.7,25.9,58.4
+"q32f","age_band_6","45-54"," I was supported to live as independently as possible",12.9,27.9,59.1
+"q32f","age_band_6","55-64"," I was supported to live as independently as possible",13.4,29.5,57.1
+"q32f","age_band_6","65 plus"," I was supported to live as independently as possible",8.6,18.8,72.6
+"q32g","age_band_6","17-24","My health, support and care services seemed to be well coordinated",23.2,22.4,54.5
+"q32g","age_band_6","25-34","My health, support and care services seemed to be well coordinated",25.8,27.5,46.6
+"q32g","age_band_6","35-44","My health, support and care services seemed to be well coordinated",21.6,27.9,50.5
+"q32g","age_band_6","45-54","My health, support and care services seemed to be well coordinated",20.4,29.6,50
+"q32g","age_band_6","55-64","My health, support and care services seemed to be well coordinated",21.1,32.3,46.6
+"q32g","age_band_6","65 plus","My health, support and care services seemed to be well coordinated",14.8,25.4,59.8
+"q32h","age_band_6","17-24","The help, care or support improved or maintained my quality of life",15.3,28.8,55.9
+"q32h","age_band_6","25-34","The help, care or support improved or maintained my quality of life",18,25.8,56.2
+"q32h","age_band_6","35-44","The help, care or support improved or maintained my quality of life",16.6,28.2,55.2
+"q32h","age_band_6","45-54","The help, care or support improved or maintained my quality of life",15.4,27.3,57.3
+"q32h","age_band_6","55-64","The help, care or support improved or maintained my quality of life",15.7,29.8,54.5
+"q32h","age_band_6","65 plus","The help, care or support improved or maintained my quality of life",9.2,21.8,69
