@@ -1,0 +1,722 @@
+---
+title: "Health and Care Experience Survey – People’s experience in social care"
+
+
+output:
+  word_document:
+    reference_docx: output_template.docx
+---
+
+```{r setup, include=FALSE}
+
+library(tidyverse)
+library(flextable)
+
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE,
+	dpi = 300
+)
+plot_theme <- 
+  theme_bw()+
+  theme(axis.text.x = element_text(size=12),
+        axis.text.y = element_text(size=12),
+        axis.title = element_text(size = 12),
+        plot.title = element_text(size=16),
+        strip.text.x = element_text(size =12),
+        legend.position = 'bottom',
+        legend.text=element_text(size=12),
+        legend.title = element_text(size=12),
+        # panel.grid.major.x = element_blank(),
+        panel.grid.minor.x=element_blank(),
+        panel.grid.minor.y = element_blank(),
+        plot.caption = element_text(size=12)) 
+```
+
+## Introduction
+
+This paper provides an overview of recent evidence on experiences of social care and caring in Scotland, with a particular focus on data from the Health and Care Experience Survey (HACE).
+
+It forms one of a collection of contextual evidence papers, setting out key sources of information about social care in Scotland, to support the introduction of the National Care Service Bill to Parliament during Spring 2022. 
+
+## Key findings
+
+  
+  * A total of 62% of respondents reported that their services were either 'good' or 'excellent' in 2021-22. This is a decrease from 69% in 2019-20. The proportion of people considering their services 'poor' or 'very poor' increased from 12% to 17%;
+  * Reported proportions of funding from all sources decreased between 2019-20 and 2021-22, with the biggest drop being the NHS (-28.2%);
+  * Between 2019-20 and 2021-22, the proportion of people reporting a choice in arranging their care fell from 42% to 36%, while those saying they did *not* have a choice grew from 17% to 24%;
+  * In 2021-22, respondents who did not receive support but felt they needed it were proportionally more likely to be: non-white, disabled, from deprived areas, LGBT and carers themselves;
+  * Over 1 in 20 respondents (5.4%) reported that they were providing 35 or more hours of care a week in 2021-22, a slight increase from 5% in 2019-20;
+  * Carers were proportionally most likely to be supporting parents/grandparents (48%) or spouses/partners (24%);
+  * 6 in 10 respondents reported receiving no support or help with their caring roles;
+  * Young people (aged 17-24) reported the highest rates of not only support to continue caring, but also that caring had a negative impact on their health and well-being.
+
+
+## About the survey
+
+HACE is biennial questionnaire that asks a nationally representative sample of the population about their experiences with their GP practice; out of hours healthcare; care, support and help with everyday living; and caring responsibilities^[[Scottish Government, 2021](https://www.gov.scot/publications/health-and-care-experience-survey-2021-privacy-notice/)]. 
+
+The 2021-22 iteration of the survey ran between November and December 2021, and received 130,352 responses. This paper analyses the survey returns focussing specifically on the experiences of people receiving care, as well as those providing unpaid care. Respondents could be both receiving care and providing upaid care. Comparisons to pre COVID-19 survey results (from 2019-20) are also provided where available and applicable. The information presented here is intended to provide insight into experiences of social care and unpaid caring in Scotland.
+
+\newpage
+
+## 1. People receiving care
+
+This section of the survey asked questions about help and care services for everyday living, including support with a caring role and help that people received from any organisations, friends or family.
+
+### 1.1 Care received
+
+Overall, 16,042 respondents to the HACE survey reported receiving any kind of care within the last 12 months. Table 1 shows the percent of people receiving care and support by type for 2021-22. 6.1% of respondents reported receiving help with household tasks, followed closely by 5.9% of respondents for help with personal tasks.  
+
+```{r table 1, include = T}
+
+read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q29/ANALYSIS_Q29_toplevel.csv") %>%
+  mutate(`'In the last 12 months, have you had any help or support with everyday living?*'` = varname,
+         `2021-22` = paste0(`1`,"%")) %>%
+  filter(!question %in%  c("q29g", "q29h")) %>% 
+  select(`'In the last 12 months, have you had any help or support with everyday living?*'`, `2021-22`) %>% 
+  flextable() %>% 
+  width(j=1, 4.8) %>% 
+  add_header_row(colwidths = 2,
+                 values = "Table 1: Proportion of people receiving services by type") %>% 
+  bold(part = 'header') %>% 
+  fontsize(i=1, size =12, part = 'header') %>% 
+  border_outer(border = officer::fp_border()) %>% 
+  vline(j=1, border = officer::fp_border()) %>% 
+  align(j=1, part = 'all') %>% 
+  add_footer_row(top=F,
+                 colwidths = 2,
+                 values = "n=16,042") %>% 
+  add_footer_row(top=F,
+                 colwidths = 2,
+                 values = "*Note: Respondents could select more than one service")
+
+```
+
+Levels of satisfaction with services varied by help/support received, as shown in Figure 1: 
+
+```{r Fig1, include = T, fig.dim=c(8,5)}
+read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q33/ANALYSIS_Q33_by29.csv") %>% 
+  filter(var == 1) %>% 
+  pivot_longer(5:7, names_to = "analvar", values_to = "prop") %>% 
+  mutate(number = row_number(),
+         prop = round(prop),
+         varname = str_wrap(varname, 44),
+         analvar = case_when(analvar == "%negative" ~ "Poor/very poor",
+                             analvar == "%neutral" ~ "Fair",
+                             T~ "Excellent/good")) %>% 
+  ggplot(aes(x=reorder(varname,number), y=prop, fill = analvar))+
+  geom_col(position = "stack", colour = "black")+
+  coord_flip()+
+  plot_theme +
+    geom_text(aes(label = paste0(prop,"%")), position = position_stack(vjust =.5)) +
+  labs(title = "Figure 1: 'In the last 12 months have you had \nany help or support with everyday living?', \n2021-22*",
+         x="",
+         y="%",
+       caption = "*Note: Respondents could select more than one service") +
+  guides(fill = guide_legend(title = "Satisfaction",
+                             reverse = T))+
+  scale_fill_brewer(palette = 'Blues')
+```
+
+Nearly three out of four people rated alarm services positively, although this was proportionally the lowest reported service (see Table 1 – note that respondents could choose more than one service). The highest levels of dissatisfaction were for help with activities outside the home (23%) and household tasks (22%). The top bar in Figure 1 shows satisfaction amongst those who care for others. Sixty-four percent of people who received help to look after someone else reported positive satisfaction with their service, compared to 14% with negative views and 22% who were neutral.
+
+Figure 2 shows the survey results for quality of care overall. When asked to rate their help, care or support services (excluding care/help received from friends and family), 62% of respondents reported that their services were either 'good' or 'excellent' in 2021-22. This is a decrease from 69% in 2019-20. Conversely, the proportion of people considering their services 'poor' or 'very poor' increased five percentage points (12% to 17%). 
+
+
+```{r Fig2, include = T, fig.dim=c(8,5)}
+
+topline <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q33/ANALYSIS_Q33_toplevel.csv") %>% 
+  mutate(variable = "OVERALL",
+         prop = mean,
+         year = "2021-22",
+         analvar = str_replace(var, " ", "")) %>% 
+  select(year, variable, prop, analvar)
+
+age <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q33/ANALYSIS_Q33_byage.csv") %>% 
+  pivot_longer(4:6, names_to ="analvar", values_to = "prop") %>% 
+  mutate(year = "2021-22",
+         variable = paste0("Age ", var))%>% 
+  select(year, variable, prop, analvar)
+
+sex <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q33/ANALYSIS_Q33_bysex.csv") %>% 
+    pivot_longer(4:6, names_to ="analvar", values_to = "prop") %>% 
+  mutate(year = "2021-22",
+         variable = case_when(var ==1 ~"Male",
+                              T~"Female")) %>% 
+  select(year, variable, prop, analvar)
+
+age_201920 <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q33/ANALYSIS_Q33_byage_201920.csv") %>% 
+  pivot_longer(2:7, names_to = "variable", values_to = "prop") %>% 
+  mutate(analvar = case_when(`Percentage of Respondents` == "Excellent/Good" ~ "%positive",
+                             `Percentage of Respondents` == "Fair" ~ "%neutral",
+                             T~"%negative"),
+         year = "2019-20",
+         variable = paste0("Age ", variable)) %>% 
+  select(year, variable, prop, analvar)
+
+rbind(topline, age, sex, age_201920) %>% 
+  #having to manually add all these values from the table that Robyn sent
+  add_row(year = "2019-20", variable = "OVERALL", prop = 11.8, analvar = "%negative") %>% 
+  add_row(year = "2019-20", variable = "OVERALL", prop = 18.8, analvar = "%neutral") %>% 
+  add_row(year = "2019-20", variable = "OVERALL", prop = 69.4, analvar = "%positive") %>% 
+  add_row(year = "2019-20", variable = "Male", prop = 10.7, analvar = "%negative") %>% 
+  add_row(year = "2019-20", variable = "Male", prop = 18.3, analvar = "%neutral") %>% 
+  add_row(year = "2019-20", variable = "Male", prop = 71, analvar = "%positive") %>% 
+  add_row(year = "2019-20", variable = "Female", prop = 12.7, analvar = "%negative") %>% 
+  add_row(year = "2019-20", variable = "Female", prop = 19.1, analvar = "%neutral") %>% 
+  add_row(year = "2019-20", variable = "Female", prop = 68.1, analvar = "%positive") %>% 
+  mutate(prop = round(prop),
+         analvar = case_when(analvar == "%negative" ~ "Poor/very poor",
+                             analvar == "%neutral" ~ "Fair",
+                             T~ "Excellent/good")) %>% 
+  ggplot(aes(x=variable, y=prop, fill = analvar))+
+  geom_col(position = "stack", colour = "black")+
+  coord_flip()+
+  facet_wrap(~year)+
+  plot_theme +
+  geom_text(aes(label = paste0(prop,"%")), position = position_stack(vjust =.5)) +
+  labs(title = "Figure 2: Satisfaction with care or support services overall and \nby age and sex, 2019-20 to 2021-22",
+         x="",
+         y="%") +
+  guides(fill = guide_legend(title = "Satisfaction",
+                             reverse = T))+
+  scale_fill_brewer(palette = 'Blues') +
+  geom_vline(xintercept = 6.5, size = 1.7) +
+  geom_vline(xintercept = 8.5, size = 1.7)
+
+```
+
+These trends were likewise the case when broken down by select characteristics: 
+
+  * The proportion of respondents rating their services as positive decreased, and vice versa, for every age band as well as both sexes between 2019-20 and 2021-22;
+  * In general, males and people aged 65 above were proportionally more likely to rate their quality of care as positive. However overall satisfaction nevertheless decreased in these groups across the two survey years;
+  * The youngest age cohort (aged 17-24) was nearly twice as likely to rate their services negatively compared to the oldest (65 and over) in 2021-22, at 23% and 12% respectively.
+
+### 1.2 Circumstances of care received
+
+In addition to considering types of care, it is important also to evaluate the circumstances in which this care was received. Table 2 shows the rates of funding for care by source. There have been decreases in reported proportions of funding from all sources between 2019-20 and 2021-22, with the biggest drop being the NHS (-28.2%). This has coincided with a dramatic increase in the rates of people for whom unpaid care forms at least part of their support, which increased by nearly 27% over that same period. 
+
+```{r table 2, include = T}
+read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q30/ANALYSIS_Q30_toplevel.csv") %>% 
+  mutate(`'Who funds your help or support with everyday living?'` = varname,
+         `2021-22` = `1`,
+         `2019-20` = case_when(question == "q30a"~ 25.1,
+                               question == "q30b"~ 48.6,
+                               question == "q30c"~ 17,
+                               question == "q30d"~ 12.3,
+                               T~36.4),
+         `%Change between surveys`= round((`2021-22`-`2019-20`)/`2019-20`*100,1)) %>% 
+  select(`'Who funds your help or support with everyday living?'`, `2019-20`, `2021-22`,`%Change between surveys`) %>% 
+  arrange(desc(`%Change between surveys`)) %>% 
+  flextable() %>% 
+  width(j=1, 2.5) %>% 
+  width(j=4, 1.5) %>% 
+  add_header_row(colwidths = 4,
+                 values = "Table 2: Proportional funding sources for care, 2019-20 and 2021-22*") %>% 
+  bold(part = 'header') %>% 
+  fontsize(i=1, size =12, part = 'header') %>% 
+  border_outer(border = officer::fp_border()) %>% 
+  vline(j=1, border = officer::fp_border()) %>% 
+  vline(j=3, border = officer::fp_border()) %>%
+  bold(j=4) %>% 
+  add_footer_row(top=F,
+                 colwidths = 4,
+                 values = "*Note: Respondents could select more than one source of funding")
+
+```
+
+
+Moreover the survey results also suggested that autonomy in arranging social care has declined, as shown in Figure 3. The overall proportion of people reporting that they had a choice in arranging their care fell from 42% to 36%, while those saying they did *not* have a choice grew from 17% to 24% – the latter corresponds to an increase of 41%. The three other categories remained largely constant.
+
+When broken down by age, the largest increase in those who were not offered any choice were aged 35-49 (17% in 2019-20 to 28% in 2021-22). Across both years young people (aged 17-24) reported the lowest rates of not being offered any choice in their social care arrangements, at just under 1 in 20 (19%) in 2021-22. On the other hand, 39% of respondents from the oldest age group (aged 65 and over) reported being offered a choice in their care across both years, the highest of all ages. 
+
+
+```{r fig3, include = T,fig.dim=c(8,7)}
+
+# read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q31/ANALYSIS_Q31_toplevel.csv") %>% 
+#   mutate(Category = var,
+#          Year = "2021-22") %>% 
+#   select(Year, Category, mean) %>% 
+#   add_row(Year = "2019-20", Category= "I had a choice", mean = 42) %>% 
+#   add_row(Year = "2019-20", Category= "I did not want a choice", mean = 6.1) %>% 
+#   add_row(Year = "2019-20", Category= "I had no choices due to medical reasons", mean = 12.9) %>% 
+#   add_row(Year = "2019-20", Category= "I was not offered any choices", mean = 16.7) %>% 
+#   add_row(Year = "2019-20", Category= "Can't remember/don't know", mean = 22.3) %>% 
+#   mutate(mean = round(mean,0)) %>% 
+#   ggplot(aes(x=Year, y=mean, fill = Category))+
+#   geom_col(position = "stack") +
+#   plot_theme+
+#   coord_flip() +
+#   geom_text(aes(label = paste0(mean,"%")), position = position_stack(vjust =.5)) +
+#   labs(title = "Figure 3: Self-assessed choice in arranging social care, \n2019-20 and 2021-22",
+#        y="%") +
+#   theme(legend.direction = "vertical")+
+#   scale_fill_brewer(palette = "Blues") +
+#   guides(fill = guide_legend(reverse = T,
+#                              title = "'Which of the following applies to you and how your social care is arranged?'"))
+
+
+fig3 <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q31/ANALYSIS_Q31_byage.csv") %>% 
+  mutate(Category = case_when(var == "OVERALL"~var,
+                              T~paste0("Age ", var)),
+         `2021-22` = round(mean,0),
+         `2019-20` = round(mean201920,0)) %>% 
+  pivot_longer(9:10, names_to = "Year", values_to = "prop") %>% 
+  select(Question, Category, Year, prop) 
+
+
+ggplot(fig3, aes(x=Category, y=prop, fill = Question))+
+  geom_col(position = "stack", colour = "black") +
+  plot_theme+
+  # coord_flip() +
+  facet_wrap(~Year) +
+  geom_text(aes(label = ifelse(prop >4, paste0(prop,"%"), "")), 
+            position = position_stack(vjust=.5)) +
+  labs(title = "Figure 3: Self-assessed choice in arranging social care by age and \noverall, 2019-20 and 2021-22",
+       y="%",
+       x="") +
+  theme(legend.direction = "vertical",
+        axis.text.x=element_text(angle=45, hjust=1))+
+  scale_fill_brewer(palette = "Blues") +
+  guides(fill = guide_legend(title = "'Which of the following applies to you and how your social care is arranged?'")) +
+  geom_vline(xintercept = 6.5, size = 1.7)
+  
+
+```
+
+
+Finally, respondents were asked to assess how they felt about help, care and support services more generally. The results of this analysis for 2019-20 and 2021-22 are shown in Figure 4. Across both survey years, respondents agreed most often that they were treated with compassion and understanding (70% in 2021-22). However, the lowest rates of agreement were for awareness of health, care and support options available – just over half (53%) of respondents agreed with this in 2021-22, which is down nearly 10 percentage points since 2019-20 (62%). This aligns with the results in Figure 3 which showed increasing proportions of people not offered a choice in arranging their care. Overall, Figure 4 shows that rates of positive responses declined, while negative responses increased, for every question between the 2019-20 and 2021-22 surveys.
+
+```{r fig4, include = T, fig.dim = c(8,10.5)}
+services_202122<- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q32/ANALYSIS_Q32_toplevel.csv") %>% 
+  select(-question) %>% 
+  mutate(year = "2021-22")
+
+services_201920<-read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q32/ANALYSIS_Q32_toplevel_201920.csv") %>%
+  mutate(year = "2019-20")
+
+rbind(services_202122, services_201920) %>%
+  arrange(desc(`% positive`)) %>%
+  mutate(varname = str_wrap(varname, 44),
+         order = row_number()) %>%
+  pivot_longer(2:4, names_to = "cat", values_to = "prop") %>%
+  mutate(cat = case_when(cat == "% negative" ~ "Disagree/strongly disagree",
+                         cat == "% neutral" ~ "Neither agree/disagree",
+                         T~ "Strongly agree/agree"),
+         prop = round(prop, 0)) %>%
+  ggplot(aes(x=reorder(varname,order), y=prop, fill = cat))+
+  geom_col(position = "stack", colour = "black")+
+  coord_flip()+
+  scale_fill_brewer(palette = 'Blues')+
+  facet_wrap(~year, ncol = 1)+
+  geom_text(aes(label = paste0(prop,"%")), position = position_stack(vjust =.5)) +
+  labs(title = "Figure 4: 'How much do you agree or \ndisagree with the following about your help, care \nand support services over the past 12 \nmonths?', 2019-20 and 2021-22",
+         x="",
+         y="%") +
+  guides(fill = guide_legend(reverse = T,
+                             title = "")) +
+    theme_bw()+
+  theme(axis.text.x = element_text(size=12),
+        axis.text.y = element_text(size=12),
+        axis.title = element_text(size = 13),
+        plot.title = element_text(size=16),
+        strip.text.x = element_text(size =12),
+        legend.position = 'bottom',
+        legend.text=element_text(size=10),
+        legend.title = element_blank(),
+        # panel.grid.major.x = element_blank(),
+        panel.grid.minor.x=element_blank(),
+        panel.grid.minor.y = element_blank(),
+        plot.caption = element_text(size=12)) 
+
+# rbind(services_202122, services_201920) %>% 
+#   arrange(desc(`% positive`)) %>% 
+#   mutate(varname = str_wrap(varname, 10),
+#          order = row_number()) %>% 
+#   pivot_longer(2:4, names_to = "cat", values_to = "prop") %>% 
+#   mutate(cat = case_when(cat == "% negative" ~ "Disagree/strongly disagree",
+#                          cat == "% neutral" ~ "Neither agree/disagree",
+#                          T~ "Strongly agree/agree"),
+#          prop = round(prop, 0)) %>% 
+#   ggplot(aes(x=reorder(varname,order), y=prop, fill = cat))+
+#   geom_col(position = "stack")+
+#   plot_theme+
+#   theme(legend.direction = "vertical")+
+#   coord_flip()+
+#   scale_fill_brewer(palette = 'Blues')+
+#   facet_wrap(~year, ncol = 2)+
+#   geom_text(aes(label = paste0(prop,"%")), position = position_stack(vjust =.5)) +
+#   labs(title = "Figure 4: 'How much do you agree or disagree with the following about your \nhelp, care and support services over the past 12 months?', 2021-22",
+#          x="",
+#          y="%") +
+#   guides(fill = guide_legend(reverse = T,
+#                              title = ""))
+
+
+
+```
+
+<!-- The data outlined in this section paint a stark picture of the state of social care before/during the COVID-19 pandemic and associated lockdowns. Not only has funding shifted increasingly from statutory services to unpaid care, but people are reporting a diminished role when it comes to decision-making about their care. Further, negative self-reported feelings about care have increased across every category queried.  -->
+
+### 1.3 Unmet need
+
+2.5% of respondents reported that they had not had any help or support with everyday living, but felt they needed it. This proportion is unchanged since 2019-20. The 2021-22 survey data outlined in Table 3 shows that this problem of 'unmet need' was concentrated in marginalised groups. 
+
+```{r Table3, include = T, fig.dim=c(7,5)}
+
+disability <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q29/ANALYSIS_Q29g_by_Q41.csv") %>% 
+  mutate(Category ="Disability issues") %>% 
+  filter(var != "Other") %>% 
+  select(Category,var, `0`, `1`) 
+
+ethnicity <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q29/ANALYSIS_Q29g_by_ethnicity.csv") %>% 
+  filter(var != "Unknown")%>% 
+  mutate(var = case_when(var == "White" ~"White",
+                               T~"Black/Minority/Ethnic")) %>%
+  group_by(var) %>% 
+  summarise(`0` = round(mean(`0`),1),
+            `1` = round(mean(`1`),1)) %>% 
+  mutate(Category = "Ethnicity") %>% 
+  select(Category, var, `0`, `1`) 
+
+caring_resp <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q29/ANALYSIS_Q29g_by_CaringResponsibilities.csv") %>% 
+  mutate(Category ="Caring responsibilities") %>% 
+   filter(var != "Unknown")%>% 
+  select(Category, var, `0`, `1`) 
+
+sexualorientation <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q29/ANALYSIS_Q29g_by_Sexualorientation.csv") %>% 
+  mutate(Category = "Sexual orientation") %>% 
+   filter(var != "Unknown")%>% 
+  select(Category, var, `0`, `1`) 
+
+SIMD <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q29/ANALYSIS_Q29g_bySIMD.csv") %>% 
+  mutate(Category = "SIMD") %>% 
+  select(Category, var, `0`, `1`) 
+
+rbind(disability,ethnicity,caring_resp,sexualorientation,SIMD) %>% 
+  mutate(`No(%)` = `0`,
+         `Yes(%)` = `1`,
+         Variable = var) %>% 
+  select(Category, Variable, `No(%)`, `Yes(%)`) %>% 
+  add_row(Category = "TOTAL", Variable = "-", `No(%)` = 97.5, `Yes(%)` = 2.5) %>% 
+  flextable() %>% 
+  width(j=1, 2.5) %>% 
+  add_header_row(colwidths = 4,
+                 values = "Table 3: Proportion of people reporting whether they needed help but did not receive it by variable, 2021-22") %>% 
+  bold(part = 'header') %>% 
+  fontsize(i=1, size =12, part = 'header') %>% 
+  border_outer(border = officer::fp_border()) %>% 
+  vline(j=c(1,2), border = officer::fp_border()) %>% 
+  hline(i=c(3,5,11,15,20), border = officer::fp_border()) %>% 
+  bold(j=4) %>% 
+  bold(i=21) %>% 
+  width(j=1, 2) %>% 
+  width(j=2, 2) %>% 
+  merge_v(j='Category') 
+```
+
+People not receiving support but feeling they needed it in 2021-22 were proportionally more likely to be: non-white, disabled, from deprived areas, LGBT and carers themselves. Given that people from these groups tend to be disadvantaged already, the patterns emerging during the pandemic could have important ramifications for these groups accessing care services going forward.
+
+\newpage
+
+## 2. Caring responsibilities
+
+This section of the survey asked questions about help and care services that people provided, **excluding** caring responsibilities undertaken as part of paid employment or formal volunteering.
+
+### 2.1 Care given
+
+A total of 23,344 survey respondents reported providing care in 2021-22. Table 4 shows caring intensity for this survey compared with results from 2019-20. The proportion of people with caring responsibilities increased for every level of caring intensity, with the largest gains for those reporting care up to 4 hours per week (+2.1 percentage points). 
+
+```{r table4, include =T}
+
+read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q35/ANALYSIS_Q35_toplevel.csv") %>%
+  mutate(`'Do you look after, or give any regular help or support, to family members, friends, neighbours or others because of either long term physical/mental health/disability or problems related to old age?'` = case_when(varname == "No" ~ varname,
+                                                                T~paste0("Yes, ", varname)),
+         `2021-22*` = paste0(mean,"%"),
+         `Change(pp)` = mean - `2019-20`,
+         `2019-20§` = paste0(`2019-20`,"%")) %>%
+  select(`'Do you look after, or give any regular help or support, to family members, friends, neighbours or others because of either long term physical/mental health/disability or problems related to old age?'`, `2019-20§`, `2021-22*`, `Change(pp)`) %>% 
+  flextable() %>% 
+  width(j=1, 4.3) %>% 
+  add_header_row(colwidths = 4,
+                 values = "Table 4: Reported caring intensity, 2019-20 and 2021-22") %>% 
+  bold(part = 'header') %>% 
+  fontsize(i=1, size =12, part = 'header') %>% 
+  border_outer(border = officer::fp_border()) %>% 
+  vline(j=1, border = officer::fp_border()) %>% 
+  hline(i=5, border = officer::fp_border()) %>% 
+  align(j=1, part = 'all') %>% 
+  add_footer_row(top=F,
+                 colwidths=4,
+                 values = "§n=23,254") %>% 
+  add_footer_row(top=F,
+                 colwidths = 4,
+                 values = "*n=23,344") %>% 
+    bold(j=4)
+
+```
+
+By contrast, the proportion of people *without* caring responsibilities has decreased, from 85.4% in 2019-20 to 81.7% in 2021-22. Over 1 in 20 people (5.4%) reported that they were providing 35 or more hours of care a week in 2021-22, up from 5.0% in 2019-20. This is effectively a full-time job, although note this question explicitly asked respondents to exclude caring done as part of paid employment or formal volunteering.
+
+Figure 5 (next page) shows that overall, parents/grandparents were proportionally the largest recipients of care by far (48%), followed by spouses/partners (24%).The least-common recipient of care in proportional terms was "someone else" across all categories. 
+
+However, there is substantial variation in caring responsibility by age. While people aged 65 and above understandably reported the lowest rates of caring for a parent/grandparent (14%), they were far more likely to be looking after a spouse/partner (53%) or a friend/neighbour (12%) than any other age group. By contrast, nearly three in four people aged 17-24 (74%) were caring for a parent/grandparent. Finally, over one quarter of people aged 35-44 (27%) reported caring for a child/grandchild, the highest of all age bands.
+
+This variation was likewise the case for sex. Men were over one and a half times more likely than women to be caring for a spouse/partner (32% to 20%). However, women reported greater proportions of looking after a parent/grandparent (52% to 42%) as well as a child/grandchild (19% to 14%). The proportions by sex were almost identical across the other variables analysed.
+
+```{r Fig5, include = T, fig.dim=c(8,8)}
+overall_q36 <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q36/ANALYSIS_Q36_toplevel.csv") %>% 
+  mutate(var = "OVERALL",
+         cat="Overall") %>% 
+  select(varname, var, `1`, cat)
+
+age_36 <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q36/ANALYSIS_Q36_byage.csv") %>% 
+  mutate(var = paste0("Age ", var),
+         cat="By age") %>% 
+  select(varname, var, `1`, cat)
+
+sex_36 <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q36/ANALYSIS_Q36_bysex.csv") %>% 
+  mutate(var = case_when(var == 1 ~"Male",
+                         T~"Female"),
+         cat ="By sex") %>% 
+  select(varname, var, `1`, cat)
+
+
+rbind(overall_q36, age_36, sex_36) %>% 
+  mutate(`1` = round(`1`, 0)) %>% 
+  ggplot(aes(x=var, y= `1`, fill=cat))+
+  geom_col(colour = "black")+
+  plot_theme+
+  facet_wrap(~varname, ncol =3) +
+  coord_flip() +
+    labs(title = "Figure 5: 'Who do you help or support?', 2021-22*",
+         x="",
+         y="%",
+         caption = "*Note: respondents could select more than one recipient of care") +
+  geom_text(aes(label = ifelse(`1` <70, paste0(`1`,"%"), "")), hjust=-.1) +
+  scale_fill_brewer(palette = "Blues", direction = -1)+
+  guides(fill = guide_legend(title = "Survey results:",
+                             reverse = T)) +
+  theme(legend.direction = "vertical")
+
+```
+
+
+### 2.2 Support for caring
+
+In addition to caring responsibilities, respondents were asked to comment on the support they had received in their caring roles. Figure 6 shows this data overall, and broken down by care intensity. Overall, the most common type of support came from family, friends or neighbours (27%). Only 2% of respondents had taken a break from their caring responsibilities, and 2% had received services which enabled them to take a break. Further, just 3% had a written plan about their caring role and support available to them. 
+
+Over 6 in 10 respondents (60%) reported not receiving any support or help whatsoever. However the proportion of those not receiving support decreased as care intensity increased. Two in three (67%) of those with the lowest care intensity – up to four hours a week – did not receive any support or help. However this figure was 53% for those providing care in excess of 50 hours per week. In other words, those people with the highest care intensity tended to receive higher rates of support for their caring role.
+
+```{r Fig6, include = T, fig.dim=c(7.5,9)}
+# read_csv(
+#   "//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q37/ANALYSIS_Q37_toplevel.csv") %>%
+#   arrange(desc(`1`)) %>%
+#   mutate(order = row_number()) %>%
+#   pivot_longer(4:5, names_to = "Response", values_to = "proportion") %>%
+#   mutate(`Response` = case_when(`Response` == "0" ~"No",
+#                                          T ~ "Yes"),
+#     varname = str_wrap(varname, 30),
+#     proportion = round(proportion, 0)) %>%
+#   ggplot(aes(x = reorder(varname,order), y = proportion, fill = `Response`)) +
+#   geom_col(position = "stack") +
+#   plot_theme +
+#   coord_flip() +
+#   scale_fill_manual(values = c("#9ecae1", "#3182bd")) +
+#   labs(x="",
+#        y="%",
+#        title = "Figure 6: 'Have you received any support to help with your \ncaring role?', 2021-22*",
+#        caption = "*Note: respondents could select more than one type of support") +
+#   guides(fill = guide_legend(reverse = T)) +
+#   geom_text(aes(label = ifelse(proportion >5, paste0(proportion,"%"), "")), position = position_stack(vjust =.5))
+
+joina_q37by35<- read_csv(
+  "//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q37/ANALYSIS_Q37_toplevel.csv") %>%
+  arrange(desc(`1`)) %>%
+  mutate(order = row_number()) %>%
+  pivot_longer(4:5, names_to = "Response", values_to = "proportion") %>%
+  mutate(`Response` = case_when(`Response` == "0" ~"No",
+                                         T ~ "Yes"),
+    proportion = round(proportion, 0),
+    variable = "OVERALL") %>% 
+  select(varname, variable, Response, proportion, order)
+
+joinb_q37by35 <- read_csv(
+  "//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q37/q37_by_35.csv") %>% 
+  mutate(varname = case_when(question == "q37a"~"A written plan about your caring role and support available to you",
+                      question == "q37b"~"Help from family/friends/neighbours",
+                      question == "q37c"~"Help from Carer Centre/local organisation",
+                      question == "q37d"~"Break(s) from caring",
+                      question == "q37e"~"Services for the person(s) you care for, to enable you to have a break",
+                      question == "q37f"~"Other support",
+                      T~"No support/help"),
+         variable = case_when(
+           var == 1 ~ "Up to 4 hours a week",
+           var == 2 ~ "5-19 hours a week",
+           var == 3 ~ "20-34 hours a week",
+           var == 4 ~ "35-49 hours a week",
+           var == 5 ~ "50 or more hours a week",
+           T ~ "No"),
+         Yes = round(analysis_var1*100,1),
+         No= round(analysis_var0*100,1)) %>% 
+  pivot_longer(13:14, names_to = "Response", values_to = "proportion") %>% 
+  select(11,12,13,14) %>% 
+  mutate(order=0)
+######################################################
+
+rbind(joina_q37by35, joinb_q37by35) %>% 
+  mutate(varname = str_wrap(varname, 40),
+         proportion = round(proportion,0)) %>% 
+  ggplot(aes(x = reorder(varname,order), y = proportion, fill = `Response`)) +
+  geom_col(position = "stack", colour = "black") +
+  coord_flip() +
+  facet_wrap(~factor(variable,levels = c("OVERALL", "Up to 4 hours a week", "5-19 hours a week", "20-34 hours a week", "35-49 hours a week", "50 or more hours a week")), ncol=2)+
+  scale_fill_manual(values = c("#9ecae1", "#3182bd")) +
+  labs(x="",
+       y="%",
+       title = "Figure 6: 'Have you received any support to help \nwith your caring role?' by caring intensity, 2021-22*",
+       caption = "*Note: respondents could select more than one type of support") +
+  guides(fill = guide_legend(reverse = T)) +
+  geom_text(aes(label = ifelse(proportion >10, paste0(proportion,"%"), "")), position = position_stack(vjust =.5)) +
+  theme_bw()+
+  theme(axis.text.x = element_text(size=9),
+        axis.text.y = element_text(size=10),
+        axis.title = element_text(size = 10),
+        plot.title = element_text(size=14),
+        strip.text.x = element_text(size =10),
+        legend.position = 'bottom',
+        legend.text=element_text(size=10),
+        legend.title = element_text(size=10),
+        # panel.grid.major.x = element_blank(),
+        panel.grid.minor.x=element_blank(),
+        panel.grid.minor.y = element_blank(),
+        plot.caption = element_text(size=10)) 
+
+```
+
+
+### 2.3 Perceptions of care
+
+Survey respondents were also asked to assess how they felt as a carer. The results of this question are shown in the following two figures. Figure 7a shows that 62% of respondents agreed or strongly agreed that they had a good balance between caring and other aspects of life. However, only 3 in 10 (30%) felt supported to continue in their caring role, while 42% neither agreed or disagreed with this statement. In addition, 39% reported that caring had a negative impact on their health and wellbeing. The lowest rates of agreement were with the statement “local services are well coordinated for the person I look after”, at 29%.
+
+While rates of agreement with these questions by sex were nearly equal, Figure 7a shows there was notable variation in age. Survey respondents aged 17-24 were proportionally more likely to report feeling supported to continue caring (46%) and having a good balance between caring and other things (75%) compared to other age groups. However, over half of the respondents in this younger cohort (51%) also reported that caring has had a negative impact on their health and wellbeing. Meanwhile, carers aged 65+ were proportionally more likely to report having a say in services provided for the person they look after (43%), and that local services are well coordinated (35%).
+
+Data on self-reported feelings about being a carer are further explored in Figure 7b. In this chart, the question is broken down by caring intensity (measured by hours of care per week, see Table 4) and whether survey respondents received support for their caring role (see Figure 6).
+
+There was notable variation in how respondents felt about being a carer by how much time they spent caring. People with low caring intensity (up to four hours a week) reported the highest rates of balance between caring and other things in their lives, with 82% in agreement. However, this group was also proportionally more likely to feel that caring had a negative impact on their health and wellbeing. 55% of respondents with low caring intensity agreed with this statement, which is over twice as high as respondents with the highest caring intensity of more than 35 hours a week (26%). Of this latter cohort, nearly half (46%) *disagreed* that caring had a negative impact on their health and wellbeing. In addition, respondents with caring responsibilities exceeding 35 hours a week were most likely to agree that they had a say in services provided for the person they looked after (43%).
+
+This variation was likewise the case depending on whether respondents had help or support with their caring roles^[Noting that people could choose more than one type of support, see Figure 6]. Compared to people who had not received support or help, those who had were proportionally much more likely to agree that:
+
+  * They had a say in services provided (54% to 28%);
+  * They felt supported to continue caring (46% to 18%), and;
+  * Local services were coordinated for the person they looked after (42% to 20%).
+  
+In addition, nearly half of respondents who had not received support (47%) neither agreed nor disagreed that they felt supported to continue caring. Interestingly, rates of agreement for the statements "caring has had a negatitive impact on my health and wellbeing" and "I have a good balance between caring and other things in my life" between these two groups were nearly equal. Nevertheless, Figure 7b shows that self-reported feelings about being a carer are generally worse for people who have not received help or support in their caring role.
+
+```{r Fig7, include = T, fig.dim=c(7,10)}
+overall_q38 <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q38/ANALYSIS_Q38_toplevel.csv") %>% 
+  mutate(var = "OVERALL",
+         `%negative` = `% negative`,
+         `%neutral` = `% neutral`,
+         `%positive` = `% positive`) %>% 
+  select(varname, var, `%negative`, `%neutral`, `%positive`)
+
+age_38 <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q38/ANALYSIS_Q38_byage.csv") %>% 
+  mutate(var = paste0("Age ", var)) %>% 
+  select(varname, var, `%negative`, `%neutral`, `%positive`)
+
+sex_38 <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q38/ANALYSIS_Q38_bysex.csv") %>% 
+  mutate(var = case_when(var == 1 ~"Male",
+                         T~"Female")) %>% 
+   select(varname, var, `%negative`, `%neutral`, `%positive`)
+
+
+rbind(overall_q38, age_38) %>% 
+  pivot_longer(3:5, names_to = "cat", values_to = "prop") %>% 
+  mutate(varname = str_wrap(varname, 34),
+         prop = round(prop,0),
+         cat = case_when(cat == "%negative" ~ "Disagree/strongly disagree",
+                         cat == "%neutral" ~ "Neither agree/disagree",
+                         T~ "Strongly agree/agree")) %>% 
+  ggplot(aes(x=var, y=prop, fill = cat)) +
+  geom_col(position = "stack",colour="black")+
+  plot_theme +
+  coord_flip()+
+  facet_wrap(~varname, ncol=2) +
+  scale_fill_brewer(palette = "Blues") +
+  labs(title = "Figure 7a: 'How much do you agree/disagree with the \nfollowing about how you feel as a carer most of the time' \noverall and by age, 2021-22",
+       x="",
+       y="%") +
+  geom_text(aes(label = paste0(prop,"%")), position = position_stack(vjust =.5)) +
+  guides(fill = guide_legend(title = "",
+                             reverse = T)) +
+  geom_vline(xintercept = 6.5, size = 1.7) +
+  theme(strip.text.x = element_text(size =11),
+        legend.text=element_text(size=10),
+        legend.title = element_text(size=10),
+        axis.text.x  = element_text(size=11))
+
+```
+
+
+```{r Fig7b, include = T, fig.dim = c(7,10)}
+
+Q38_by_Q35 <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q38/Q38_by_Q35.csv")
+
+Q38_by_Q37G <- read_csv("//s0177a/datashare/community_care/Health and Care Experience/2021-22/JB_outputs/Q38/Q38_by_Q37G.csv")
+
+rbind(Q38_by_Q35, Q38_by_Q37G)%>% 
+  mutate(question = case_when(question == "q38a" ~ "I have a good balance between caring and other things in my life",
+                              question == "q38b" ~ "Caring has had a negative impact on my health and wellbeing",
+                              question == "q38c" ~ "I have a say in services provided for the person(s) I look after",
+                              question == "q38d" ~ "Local services are well coordinated for the person(s) I look after",
+                              T ~ "I feel supported to continue caring"),
+         question = str_wrap(question, 34),
+         Intensity = case_when((var ==1 & byvar == "q35") ~ "Up to 4 hours a week",
+                               var %in% c(2,3)  ~"5 to 35 hours a week",
+                               var %in% c(4,5)~"Over 35 hours a week",
+                               var == 0 ~ "Help/support received",
+                               (var == 1 & byvar == "q37g") ~ "No help/support received",
+                               T~"?"),
+         `Disagree/strongly disagree` = posneutneg..negative,
+         `Neither agree/disagree` = posneutneg..neutral,
+         `Strongly agree/agree` = posneutneg..positive) %>% 
+  select(11:17) %>% 
+  pivot_longer(names_to = "cat", values_to = "prop", 5:7) %>% 
+  filter(Intensity != "?") %>% 
+  group_by(question, Intensity, cat) %>% 
+  summarise(proportion = round(mean(prop)*100, 0)) %>% 
+  ungroup() %>% 
+  mutate(order = case_when(Intensity=="Up to 4 hours a week" ~1,
+                           Intensity=="5 to 35 hours a week"~2,
+                           Intensity=="Help/support received" ~4,
+                           Intensity=="No help/support received"~5,
+                           T~3),
+          Intensity =  str_wrap(Intensity, 13)) %>% 
+  ggplot(aes(x=reorder(Intensity,order), y=proportion, fill =cat))+
+  geom_col(position = "stack", colour = "black")+
+  plot_theme +
+  coord_flip()+
+  facet_wrap(~question, ncol=2) +
+  geom_text(aes(label = ifelse(proportion>5, paste0(proportion,"%"), "")), position = position_stack(vjust =.5)) +
+  guides(fill = guide_legend(title = "",
+                             reverse = T))+
+  scale_fill_brewer(palette = "Blues") +
+  geom_vline(xintercept = 3.5, size = 1.7) +
+  labs(title = "Figure 7b: 'How much do you agree/disagree with the \nfollowing about how you feel as a carer most of the time' \nby caring intensity and support received, 2021-22",
+       x="",
+       y="%") +
+  theme(strip.text.x = element_text(size =11),
+        legend.text=element_text(size=10),
+        legend.title = element_text(size=10),
+        axis.text.x = element_text(size=11))
+
+```
+
+## Conclusion
+
+This paper has presented recent evidence on the experiences of social care and caring in Scotland. Drawing on the Health and Care Experience Survey, this data showed that assessments of social care have generally worsened between 2019-20 and 2021-22; overall satisfaction with services have declined, rates of unpaid care have increased, and caring responsibilities have grown. It has also highlighted substantial geographic disparities in social care delivery and provision. Finally, it has shown that disadvantaged groups (by disability, ethnicity, sexual orientation and deprivation) report comparatively higher rates of unmet social care need.
+
+The COVID-19 pandemic – which occurred in between the two survey years – had tremendous implications for all health and social care, and may therefore be partially responsible for some of the trends outlined in this paper. Nevertheless, there are serious shortcomings in social care delivery and provision in Scotland. The evidence presented here could provide a crucial evidence base to help inform the development of the National Care Service bill as it proceeds through the legislative process.
