@@ -1,0 +1,156 @@
+"analysisby","question","hscp_name","Question","mean"
+"S37000001","q31","Aberdeen City","I had a choice",35
+"S37000001","q31","Aberdeen City","I did not want a choice",5.2
+"S37000001","q31","Aberdeen City","I had no choices due to medical reasons",14.2
+"S37000001","q31","Aberdeen City","I was not offered any choices",23
+"S37000001","q31","Aberdeen City","Can't remember/don't know",22.5
+"S37000002","q31","Aberdeenshire","I had a choice",40.6
+"S37000002","q31","Aberdeenshire","I did not want a choice",5.6
+"S37000002","q31","Aberdeenshire","I had no choices due to medical reasons",11.1
+"S37000002","q31","Aberdeenshire","I was not offered any choices",23
+"S37000002","q31","Aberdeenshire","Can't remember/don't know",19.7
+"S37000003","q31","Angus","I had a choice",45.5
+"S37000003","q31","Angus","I did not want a choice",4.4
+"S37000003","q31","Angus","I had no choices due to medical reasons",9.3
+"S37000003","q31","Angus","I was not offered any choices",17.8
+"S37000003","q31","Angus","Can't remember/don't know",23
+"S37000004","q31","Argyll and Bute","I had a choice",35.6
+"S37000004","q31","Argyll and Bute","I did not want a choice",6
+"S37000004","q31","Argyll and Bute","I had no choices due to medical reasons",10.5
+"S37000004","q31","Argyll and Bute","I was not offered any choices",22.2
+"S37000004","q31","Argyll and Bute","Can't remember/don't know",25.7
+"S37000005","q31","Clackmannanshire and Stirling","I had a choice",28.7
+"S37000005","q31","Clackmannanshire and Stirling","I did not want a choice",4.5
+"S37000005","q31","Clackmannanshire and Stirling","I had no choices due to medical reasons",15.9
+"S37000005","q31","Clackmannanshire and Stirling","I was not offered any choices",29.9
+"S37000005","q31","Clackmannanshire and Stirling","Can't remember/don't know",21
+"S37000006","q31","Dumfries and Galloway","I had a choice",41.4
+"S37000006","q31","Dumfries and Galloway","I did not want a choice",5.3
+"S37000006","q31","Dumfries and Galloway","I had no choices due to medical reasons",10.5
+"S37000006","q31","Dumfries and Galloway","I was not offered any choices",20.1
+"S37000006","q31","Dumfries and Galloway","Can't remember/don't know",22.8
+"S37000007","q31","Dundee City","I had a choice",36.9
+"S37000007","q31","Dundee City","I did not want a choice",7.8
+"S37000007","q31","Dundee City","I had no choices due to medical reasons",13.5
+"S37000007","q31","Dundee City","I was not offered any choices",20.6
+"S37000007","q31","Dundee City","Can't remember/don't know",21.2
+"S37000008","q31","East Ayrshire","I had a choice",38.6
+"S37000008","q31","East Ayrshire","I did not want a choice",3.3
+"S37000008","q31","East Ayrshire","I had no choices due to medical reasons",16.9
+"S37000008","q31","East Ayrshire","I was not offered any choices",17.7
+"S37000008","q31","East Ayrshire","Can't remember/don't know",23.5
+"S37000009","q31","East Dunbartonshire","I had a choice",35.2
+"S37000009","q31","East Dunbartonshire","I did not want a choice",9.1
+"S37000009","q31","East Dunbartonshire","I had no choices due to medical reasons",11.6
+"S37000009","q31","East Dunbartonshire","I was not offered any choices",23.1
+"S37000009","q31","East Dunbartonshire","Can't remember/don't know",21.1
+"S37000010","q31","East Lothian","I had a choice",28.3
+"S37000010","q31","East Lothian","I did not want a choice",9.4
+"S37000010","q31","East Lothian","I had no choices due to medical reasons",14
+"S37000010","q31","East Lothian","I was not offered any choices",28.5
+"S37000010","q31","East Lothian","Can't remember/don't know",19.8
+"S37000011","q31","East Renfrewshire","I had a choice",36.7
+"S37000011","q31","East Renfrewshire","I did not want a choice",4
+"S37000011","q31","East Renfrewshire","I had no choices due to medical reasons",12.6
+"S37000011","q31","East Renfrewshire","I was not offered any choices",24.1
+"S37000011","q31","East Renfrewshire","Can't remember/don't know",22.6
+"S37000012","q31","Edinburgh","I had a choice",36.6
+"S37000012","q31","Edinburgh","I did not want a choice",5.9
+"S37000012","q31","Edinburgh","I had no choices due to medical reasons",10.9
+"S37000012","q31","Edinburgh","I was not offered any choices",26.6
+"S37000012","q31","Edinburgh","Can't remember/don't know",20
+"S37000013","q31","Falkirk","I had a choice",36.2
+"S37000013","q31","Falkirk","I did not want a choice",8.2
+"S37000013","q31","Falkirk","I had no choices due to medical reasons",12.3
+"S37000013","q31","Falkirk","I was not offered any choices",22.4
+"S37000013","q31","Falkirk","Can't remember/don't know",20.9
+"S37000016","q31","Highland","I had a choice",36.8
+"S37000016","q31","Highland","I did not want a choice",7.3
+"S37000016","q31","Highland","I had no choices due to medical reasons",11.4
+"S37000016","q31","Highland","I was not offered any choices",24.8
+"S37000016","q31","Highland","Can't remember/don't know",19.7
+"S37000017","q31","Inverclyde","I had a choice",31.2
+"S37000017","q31","Inverclyde","I did not want a choice",7
+"S37000017","q31","Inverclyde","I had no choices due to medical reasons",8.8
+"S37000017","q31","Inverclyde","I was not offered any choices",26.2
+"S37000017","q31","Inverclyde","Can't remember/don't know",26.8
+"S37000018","q31","Midlothian","I had a choice",30.7
+"S37000018","q31","Midlothian","I did not want a choice",7.7
+"S37000018","q31","Midlothian","I had no choices due to medical reasons",11.1
+"S37000018","q31","Midlothian","I was not offered any choices",23.8
+"S37000018","q31","Midlothian","Can't remember/don't know",26.8
+"S37000019","q31","Moray","I had a choice",30.2
+"S37000019","q31","Moray","I did not want a choice",6.8
+"S37000019","q31","Moray","I had no choices due to medical reasons",10.1
+"S37000019","q31","Moray","I was not offered any choices",26.7
+"S37000019","q31","Moray","Can't remember/don't know",26.1
+"S37000020","q31","North Ayrshire","I had a choice",38.5
+"S37000020","q31","North Ayrshire","I did not want a choice",4.4
+"S37000020","q31","North Ayrshire","I had no choices due to medical reasons",11.6
+"S37000020","q31","North Ayrshire","I was not offered any choices",20.4
+"S37000020","q31","North Ayrshire","Can't remember/don't know",25.1
+"S37000022","q31","Orkney Islands","I had a choice",44.5
+"S37000022","q31","Orkney Islands","I did not want a choice",6.7
+"S37000022","q31","Orkney Islands","I had no choices due to medical reasons",11.2
+"S37000022","q31","Orkney Islands","I was not offered any choices",17.6
+"S37000022","q31","Orkney Islands","Can't remember/don't know",20.1
+"S37000024","q31","Renfrewshire","I had a choice",31.1
+"S37000024","q31","Renfrewshire","I did not want a choice",6.5
+"S37000024","q31","Renfrewshire","I had no choices due to medical reasons",9.9
+"S37000024","q31","Renfrewshire","I was not offered any choices",23.4
+"S37000024","q31","Renfrewshire","Can't remember/don't know",29
+"S37000025","q31","Scottish Borders","I had a choice",33.3
+"S37000025","q31","Scottish Borders","I did not want a choice",12.5
+"S37000025","q31","Scottish Borders","I had no choices due to medical reasons",10.5
+"S37000025","q31","Scottish Borders","I was not offered any choices",23.1
+"S37000025","q31","Scottish Borders","Can't remember/don't know",20.5
+"S37000026","q31","Shetland Islands","I had a choice",55.6
+"S37000026","q31","Shetland Islands","I did not want a choice",5.9
+"S37000026","q31","Shetland Islands","I had no choices due to medical reasons",6.3
+"S37000026","q31","Shetland Islands","I was not offered any choices",9.4
+"S37000026","q31","Shetland Islands","Can't remember/don't know",22.9
+"S37000027","q31","South Ayrshire","I had a choice",42.5
+"S37000027","q31","South Ayrshire","I did not want a choice",5.8
+"S37000027","q31","South Ayrshire","I had no choices due to medical reasons",9.2
+"S37000027","q31","South Ayrshire","I was not offered any choices",18.8
+"S37000027","q31","South Ayrshire","Can't remember/don't know",23.7
+"S37000028","q31","South Lanarkshire","I had a choice",31.7
+"S37000028","q31","South Lanarkshire","I did not want a choice",5
+"S37000028","q31","South Lanarkshire","I had no choices due to medical reasons",11.9
+"S37000028","q31","South Lanarkshire","I was not offered any choices",29.5
+"S37000028","q31","South Lanarkshire","Can't remember/don't know",21.9
+"S37000029","q31","West Dunbartonshire","I had a choice",36.5
+"S37000029","q31","West Dunbartonshire","I did not want a choice",8.1
+"S37000029","q31","West Dunbartonshire","I had no choices due to medical reasons",12.1
+"S37000029","q31","West Dunbartonshire","I was not offered any choices",18.8
+"S37000029","q31","West Dunbartonshire","Can't remember/don't know",24.5
+"S37000030","q31","West Lothian","I had a choice",34.6
+"S37000030","q31","West Lothian","I did not want a choice",4.3
+"S37000030","q31","West Lothian","I had no choices due to medical reasons",11.4
+"S37000030","q31","West Lothian","I was not offered any choices",24.8
+"S37000030","q31","West Lothian","Can't remember/don't know",24.9
+"S37000031","q31","Western Isles","I had a choice",41.9
+"S37000031","q31","Western Isles","I did not want a choice",14.6
+"S37000031","q31","Western Isles","I had no choices due to medical reasons",8.3
+"S37000031","q31","Western Isles","I was not offered any choices",17.4
+"S37000031","q31","Western Isles","Can't remember/don't know",17.8
+"S37000032","q31","Fife","I had a choice",33.3
+"S37000032","q31","Fife","I did not want a choice",5.1
+"S37000032","q31","Fife","I had no choices due to medical reasons",10.9
+"S37000032","q31","Fife","I was not offered any choices",24.5
+"S37000032","q31","Fife","Can't remember/don't know",26.1
+"S37000033","q31","Perth and Kinross","I had a choice",39.3
+"S37000033","q31","Perth and Kinross","I did not want a choice",6.4
+"S37000033","q31","Perth and Kinross","I had no choices due to medical reasons",13
+"S37000033","q31","Perth and Kinross","I was not offered any choices",19.4
+"S37000033","q31","Perth and Kinross","Can't remember/don't know",21.8
+"S37000034","q31","Glasgow City","I had a choice",35.2
+"S37000034","q31","Glasgow City","I did not want a choice",4.1
+"S37000034","q31","Glasgow City","I had no choices due to medical reasons",10.9
+"S37000034","q31","Glasgow City","I was not offered any choices",22.3
+"S37000034","q31","Glasgow City","Can't remember/don't know",27.5
+"S37000035","q31","North Lanarkshire","I had a choice",32.1
+"S37000035","q31","North Lanarkshire","I did not want a choice",4.2
+"S37000035","q31","North Lanarkshire","I had no choices due to medical reasons",13.6
+"S37000035","q31","North Lanarkshire","I was not offered any choices",25.6
+"S37000035","q31","North Lanarkshire","Can't remember/don't know",24.5
