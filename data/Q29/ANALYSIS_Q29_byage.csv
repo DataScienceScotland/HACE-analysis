@@ -1,0 +1,49 @@
+"question","byvar","var","varname","0","1"
+"q29a","age_band_6","17-24","Yes,help for me with personal tasks",95.5,4.5
+"q29a","age_band_6","25-34","Yes,help for me with personal tasks",95.9,4.1
+"q29a","age_band_6","35-44","Yes,help for me with personal tasks",95.7,4.3
+"q29a","age_band_6","45-54","Yes,help for me with personal tasks",95.3,4.7
+"q29a","age_band_6","55-64","Yes,help for me with personal tasks",94.4,5.6
+"q29a","age_band_6","65 plus","Yes,help for me with personal tasks",89.7,10.3
+"q29b","age_band_6","17-24","Yes, help for me with household tasks",95.6,4.4
+"q29b","age_band_6","25-34","Yes, help for me with household tasks",96,4
+"q29b","age_band_6","35-44","Yes, help for me with household tasks",95.8,4.2
+"q29b","age_band_6","45-54","Yes, help for me with household tasks",95.4,4.6
+"q29b","age_band_6","55-64","Yes, help for me with household tasks",94.3,5.7
+"q29b","age_band_6","65 plus","Yes, help for me with household tasks",88.8,11.2
+"q29c","age_band_6","17-24","Yes, help for me for activities outside my home",96,4
+"q29c","age_band_6","25-34","Yes, help for me for activities outside my home",96.5,3.5
+"q29c","age_band_6","35-44","Yes, help for me for activities outside my home",96.4,3.6
+"q29c","age_band_6","45-54","Yes, help for me for activities outside my home",96.2,3.8
+"q29c","age_band_6","55-64","Yes, help for me for activities outside my home",95.3,4.7
+"q29c","age_band_6","65 plus","Yes, help for me for activities outside my home",91.9,8.1
+"q29d","age_band_6","17-24","Yes, help for me with adaptations, and/or equipment for my home",98.8,1.2
+"q29d","age_band_6","25-34","Yes, help for me with adaptations, and/or equipment for my home",98.6,1.4
+"q29d","age_band_6","35-44","Yes, help for me with adaptations, and/or equipment for my home",98.6,1.4
+"q29d","age_band_6","45-54","Yes, help for me with adaptations, and/or equipment for my home",97.6,2.4
+"q29d","age_band_6","55-64","Yes, help for me with adaptations, and/or equipment for my home",97,3
+"q29d","age_band_6","65 plus","Yes, help for me with adaptations, and/or equipment for my home",92.1,7.9
+"q29e","age_band_6","17-24","Yes, an alarm service that can get me help",99.7,0.3
+"q29e","age_band_6","25-34","Yes, an alarm service that can get me help",99.7,0.3
+"q29e","age_band_6","35-44","Yes, an alarm service that can get me help",99.7,0.3
+"q29e","age_band_6","45-54","Yes, an alarm service that can get me help",99.5,0.5
+"q29e","age_band_6","55-64","Yes, an alarm service that can get me help",99.3,0.7
+"q29e","age_band_6","65 plus","Yes, an alarm service that can get me help",93.1,6.9
+"q29f","age_band_6","17-24","Yes, help to look after someone else",98.9,1.1
+"q29f","age_band_6","25-34","Yes, help to look after someone else",98.8,1.2
+"q29f","age_band_6","35-44","Yes, help to look after someone else",98.4,1.6
+"q29f","age_band_6","45-54","Yes, help to look after someone else",97.7,2.3
+"q29f","age_band_6","55-64","Yes, help to look after someone else",97.5,2.5
+"q29f","age_band_6","65 plus","Yes, help to look after someone else",97.1,2.9
+"q29g","age_band_6","17-24","No, not had any help but I feel that I needed it",97.2,2.8
+"q29g","age_band_6","25-34","No, not had any help but I feel that I needed it",96.9,3.1
+"q29g","age_band_6","35-44","No, not had any help but I feel that I needed it",97.2,2.8
+"q29g","age_band_6","45-54","No, not had any help but I feel that I needed it",97.3,2.7
+"q29g","age_band_6","55-64","No, not had any help but I feel that I needed it",97.8,2.2
+"q29g","age_band_6","65 plus","No, not had any help but I feel that I needed it",98.1,1.9
+"q29h","age_band_6","17-24","No, not had any help",9.5,90.5
+"q29h","age_band_6","25-34","No, not had any help",9.2,90.8
+"q29h","age_band_6","35-44","No, not had any help",9.4,90.6
+"q29h","age_band_6","45-54","No, not had any help",10.8,89.2
+"q29h","age_band_6","55-64","No, not had any help",11.9,88.1
+"q29h","age_band_6","65 plus","No, not had any help",22.3,77.7
