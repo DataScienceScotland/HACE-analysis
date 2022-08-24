@@ -1,0 +1,37 @@
+"question","byvar","var","varname","0","1"
+"q36a","age_band_6","17-24","Spouse/Partner",94.3,5.7
+"q36a","age_band_6","25-34","Spouse/Partner",84.1,15.9
+"q36a","age_band_6","35-44","Spouse/Partner",84.5,15.5
+"q36a","age_band_6","45-54","Spouse/Partner",86.4,13.6
+"q36a","age_band_6","55-64","Spouse/Partner",80.1,19.9
+"q36a","age_band_6","65 plus","Spouse/Partner",47.4,52.6
+"q36b","age_band_6","17-24","Parent/Grandparent",26.2,73.8
+"q36b","age_band_6","25-34","Parent/Grandparent",40.8,59.2
+"q36b","age_band_6","35-44","Parent/Grandparent",46.7,53.3
+"q36b","age_band_6","45-54","Parent/Grandparent",37.8,62.2
+"q36b","age_band_6","55-64","Parent/Grandparent",45,55
+"q36b","age_band_6","65 plus","Parent/Grandparent",86.1,13.9
+"q36c","age_band_6","17-24","Child/Grandchild",95.4,4.6
+"q36c","age_band_6","25-34","Child/Grandchild",83.7,16.3
+"q36c","age_band_6","35-44","Child/Grandchild",72.7,27.3
+"q36c","age_band_6","45-54","Child/Grandchild",80.6,19.4
+"q36c","age_band_6","55-64","Child/Grandchild",85.8,14.2
+"q36c","age_band_6","65 plus","Child/Grandchild",86.5,13.5
+"q36d","age_band_6","17-24","Friend/Neighbour",93.7,6.3
+"q36d","age_band_6","25-34","Friend/Neighbour",91.5,8.5
+"q36d","age_band_6","35-44","Friend/Neighbour",91.7,8.3
+"q36d","age_band_6","45-54","Friend/Neighbour",91.8,8.2
+"q36d","age_band_6","55-64","Friend/Neighbour",91.8,8.2
+"q36d","age_band_6","65 plus","Friend/Neighbour",87.7,12.3
+"q36e","age_band_6","17-24","Relative (any other relationship)",82.3,17.7
+"q36e","age_band_6","25-34","Relative (any other relationship)",84,16
+"q36e","age_band_6","35-44","Relative (any other relationship)",86.1,13.9
+"q36e","age_band_6","45-54","Relative (any other relationship)",86.6,13.4
+"q36e","age_band_6","55-64","Relative (any other relationship)",83.4,16.6
+"q36e","age_band_6","65 plus","Relative (any other relationship)",84.2,15.8
+"q36f","age_band_6","17-24","Someone else",96.7,3.3
+"q36f","age_band_6","25-34","Someone else",96.4,3.6
+"q36f","age_band_6","35-44","Someone else",98,2
+"q36f","age_band_6","45-54","Someone else",98.2,1.8
+"q36f","age_band_6","55-64","Someone else",98.2,1.8
+"q36f","age_band_6","65 plus","Someone else",98.4,1.6
