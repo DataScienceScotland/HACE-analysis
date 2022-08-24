@@ -1,0 +1,156 @@
+"question","varname","hscp_name","0","1"
+"q30a","Council","Aberdeen City",72.3,27.7
+"q30a","Council","Aberdeenshire",73.3,26.7
+"q30a","Council","Angus",78.4,21.6
+"q30a","Council","Argyll and Bute",74.4,25.6
+"q30a","Council","Clackmannanshire and Stirling",76.3,23.7
+"q30a","Council","Dumfries and Galloway",76.3,23.7
+"q30a","Council","Dundee City",80.1,19.9
+"q30a","Council","East Ayrshire",77.8,22.2
+"q30a","Council","East Dunbartonshire",71.4,28.6
+"q30a","Council","East Lothian",74.2,25.8
+"q30a","Council","East Renfrewshire",74.9,25.1
+"q30a","Council","Edinburgh",74.1,25.9
+"q30a","Council","Falkirk",79.5,20.5
+"q30a","Council","Highland",89.3,10.7
+"q30a","Council","Inverclyde",81.5,18.5
+"q30a","Council","Midlothian",80.7,19.3
+"q30a","Council","Moray",78.5,21.5
+"q30a","Council","North Ayrshire",72.4,27.6
+"q30a","Council","Orkney Islands",78.1,21.9
+"q30a","Council","Renfrewshire",79.8,20.2
+"q30a","Council","Scottish Borders",74.6,25.4
+"q30a","Council","Shetland Islands",72.3,27.7
+"q30a","Council","South Ayrshire",77,23
+"q30a","Council","South Lanarkshire",80.2,19.8
+"q30a","Council","West Dunbartonshire",74.7,25.3
+"q30a","Council","West Lothian",77.8,22.2
+"q30a","Council","Western Isles",70.4,29.6
+"q30a","Council","Fife",77.9,22.1
+"q30a","Council","Perth and Kinross",71.6,28.4
+"q30a","Council","Glasgow City",81.6,18.4
+"q30a","Council","North Lanarkshire",81.6,18.4
+"q30b","Me/family","Aberdeen City",52.1,47.9
+"q30b","Me/family","Aberdeenshire",52.7,47.3
+"q30b","Me/family","Angus",46.6,53.4
+"q30b","Me/family","Argyll and Bute",43.9,56.1
+"q30b","Me/family","Clackmannanshire and Stirling",55.3,44.7
+"q30b","Me/family","Dumfries and Galloway",54.9,45.1
+"q30b","Me/family","Dundee City",52.4,47.6
+"q30b","Me/family","East Ayrshire",53.7,46.3
+"q30b","Me/family","East Dunbartonshire",46.7,53.3
+"q30b","Me/family","East Lothian",47.7,52.3
+"q30b","Me/family","East Renfrewshire",47.9,52.1
+"q30b","Me/family","Edinburgh",51,49
+"q30b","Me/family","Falkirk",49,51
+"q30b","Me/family","Highland",52.2,47.8
+"q30b","Me/family","Inverclyde",60.1,39.9
+"q30b","Me/family","Midlothian",48.3,51.7
+"q30b","Me/family","Moray",56.6,43.4
+"q30b","Me/family","North Ayrshire",50.2,49.8
+"q30b","Me/family","Orkney Islands",67.1,32.9
+"q30b","Me/family","Renfrewshire",54.8,45.2
+"q30b","Me/family","Scottish Borders",51.2,48.8
+"q30b","Me/family","Shetland Islands",48,52
+"q30b","Me/family","South Ayrshire",48.9,51.1
+"q30b","Me/family","South Lanarkshire",56.6,43.4
+"q30b","Me/family","West Dunbartonshire",57.3,42.7
+"q30b","Me/family","West Lothian",50.5,49.5
+"q30b","Me/family","Western Isles",61,39
+"q30b","Me/family","Fife",55,45
+"q30b","Me/family","Perth and Kinross",49,51
+"q30b","Me/family","Glasgow City",55,45
+"q30b","Me/family","North Lanarkshire",56.7,43.3
+"q30c","NHS","Aberdeen City",87.3,12.7
+"q30c","NHS","Aberdeenshire",85.9,14.1
+"q30c","NHS","Angus",87.5,12.5
+"q30c","NHS","Argyll and Bute",85.4,14.6
+"q30c","NHS","Clackmannanshire and Stirling",88.3,11.7
+"q30c","NHS","Dumfries and Galloway",89.1,10.9
+"q30c","NHS","Dundee City",88.3,11.7
+"q30c","NHS","East Ayrshire",87.8,12.2
+"q30c","NHS","East Dunbartonshire",89.7,10.3
+"q30c","NHS","East Lothian",84.5,15.5
+"q30c","NHS","East Renfrewshire",88.3,11.7
+"q30c","NHS","Edinburgh",87.6,12.4
+"q30c","NHS","Falkirk",87.2,12.8
+"q30c","NHS","Highland",76.8,23.2
+"q30c","NHS","Inverclyde",90.2,9.8
+"q30c","NHS","Midlothian",89.1,10.9
+"q30c","NHS","Moray",88.3,11.7
+"q30c","NHS","North Ayrshire",89.6,10.4
+"q30c","NHS","Orkney Islands",87.9,12.1
+"q30c","NHS","Renfrewshire",89.5,10.5
+"q30c","NHS","Scottish Borders",91.3,8.7
+"q30c","NHS","Shetland Islands",83.7,16.3
+"q30c","NHS","South Ayrshire",88.5,11.5
+"q30c","NHS","South Lanarkshire",90.5,9.5
+"q30c","NHS","West Dunbartonshire",87.4,12.6
+"q30c","NHS","West Lothian",86.8,13.2
+"q30c","NHS","Western Isles",80.4,19.6
+"q30c","NHS","Fife",90.9,9.1
+"q30c","NHS","Perth and Kinross",88.5,11.5
+"q30c","NHS","Glasgow City",87.1,12.9
+"q30c","NHS","North Lanarkshire",89.9,10.1
+"q30d","Other","Aberdeen City",93.2,6.8
+"q30d","Other","Aberdeenshire",91.5,8.5
+"q30d","Other","Angus",85.5,14.5
+"q30d","Other","Argyll and Bute",85.7,14.3
+"q30d","Other","Clackmannanshire and Stirling",90.9,9.1
+"q30d","Other","Dumfries and Galloway",87.3,12.7
+"q30d","Other","Dundee City",90.1,9.9
+"q30d","Other","East Ayrshire",88.8,11.2
+"q30d","Other","East Dunbartonshire",90.3,9.7
+"q30d","Other","East Lothian",94.1,5.9
+"q30d","Other","East Renfrewshire",88.5,11.5
+"q30d","Other","Edinburgh",89,11
+"q30d","Other","Falkirk",91,9
+"q30d","Other","Highland",85.7,14.3
+"q30d","Other","Inverclyde",90.4,9.6
+"q30d","Other","Midlothian",87.3,12.7
+"q30d","Other","Moray",86.5,13.5
+"q30d","Other","North Ayrshire",87.8,12.2
+"q30d","Other","Orkney Islands",82.9,17.1
+"q30d","Other","Renfrewshire",88.7,11.3
+"q30d","Other","Scottish Borders",90.9,9.1
+"q30d","Other","Shetland Islands",89.1,10.9
+"q30d","Other","South Ayrshire",89.5,10.5
+"q30d","Other","South Lanarkshire",88.7,11.3
+"q30d","Other","West Dunbartonshire",91,9
+"q30d","Other","West Lothian",90.5,9.5
+"q30d","Other","Western Isles",89,11
+"q30d","Other","Fife",86.9,13.1
+"q30d","Other","Perth and Kinross",89,11
+"q30d","Other","Glasgow City",86.2,13.8
+"q30d","Other","North Lanarkshire",89,11
+"q30e","Unpaid cair from friends/family","Aberdeen City",56.1,43.9
+"q30e","Unpaid cair from friends/family","Aberdeenshire",50.9,49.1
+"q30e","Unpaid cair from friends/family","Angus",53.9,46.1
+"q30e","Unpaid cair from friends/family","Argyll and Bute",58.1,41.9
+"q30e","Unpaid cair from friends/family","Clackmannanshire and Stirling",53.2,46.8
+"q30e","Unpaid cair from friends/family","Dumfries and Galloway",59.4,40.6
+"q30e","Unpaid cair from friends/family","Dundee City",52.9,47.1
+"q30e","Unpaid cair from friends/family","East Ayrshire",53.4,46.6
+"q30e","Unpaid cair from friends/family","East Dunbartonshire",50.4,49.6
+"q30e","Unpaid cair from friends/family","East Lothian",58.9,41.1
+"q30e","Unpaid cair from friends/family","East Renfrewshire",60.1,39.9
+"q30e","Unpaid cair from friends/family","Edinburgh",54.6,45.4
+"q30e","Unpaid cair from friends/family","Falkirk",49.8,50.2
+"q30e","Unpaid cair from friends/family","Highland",52.8,47.2
+"q30e","Unpaid cair from friends/family","Inverclyde",52.7,47.3
+"q30e","Unpaid cair from friends/family","Midlothian",53.4,46.6
+"q30e","Unpaid cair from friends/family","Moray",50.8,49.2
+"q30e","Unpaid cair from friends/family","North Ayrshire",53.6,46.4
+"q30e","Unpaid cair from friends/family","Orkney Islands",41.2,58.8
+"q30e","Unpaid cair from friends/family","Renfrewshire",53,47
+"q30e","Unpaid cair from friends/family","Scottish Borders",61,39
+"q30e","Unpaid cair from friends/family","Shetland Islands",56.7,43.3
+"q30e","Unpaid cair from friends/family","South Ayrshire",55,45
+"q30e","Unpaid cair from friends/family","South Lanarkshire",49,51
+"q30e","Unpaid cair from friends/family","West Dunbartonshire",49,51
+"q30e","Unpaid cair from friends/family","West Lothian",57.5,42.5
+"q30e","Unpaid cair from friends/family","Western Isles",55.9,44.1
+"q30e","Unpaid cair from friends/family","Fife",53.8,46.2
+"q30e","Unpaid cair from friends/family","Perth and Kinross",56.6,43.4
+"q30e","Unpaid cair from friends/family","Glasgow City",55.4,44.6
+"q30e","Unpaid cair from friends/family","North Lanarkshire",48.7,51.3

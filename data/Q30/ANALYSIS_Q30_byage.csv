@@ -1,0 +1,31 @@
+"question","byvar","var","varname","0","1"
+"q30a","age_band_6","17-24","Council",78.1,21.9
+"q30a","age_band_6","25-34","Council",80.5,19.5
+"q30a","age_band_6","35-44","Council",80.4,19.6
+"q30a","age_band_6","45-54","Council",80.3,19.7
+"q30a","age_band_6","55-64","Council",79.8,20.2
+"q30a","age_band_6","65 plus","Council",76.2,23.8
+"q30b","age_band_6","17-24","Me/family",56,44
+"q30b","age_band_6","25-34","Me/family",49,51
+"q30b","age_band_6","35-44","Me/family",55.1,44.9
+"q30b","age_band_6","45-54","Me/family",53.2,46.8
+"q30b","age_band_6","55-64","Me/family",56.6,43.4
+"q30b","age_band_6","65 plus","Me/family",51.4,48.6
+"q30c","age_band_6","17-24","NHS",90.5,9.5
+"q30c","age_band_6","25-34","NHS",89,11
+"q30c","age_band_6","35-44","NHS",89.5,10.5
+"q30c","age_band_6","45-54","NHS",86.7,13.3
+"q30c","age_band_6","55-64","NHS",88.6,11.4
+"q30c","age_band_6","65 plus","NHS",87.1,12.9
+"q30d","age_band_6","17-24","Other",82.7,17.3
+"q30d","age_band_6","25-34","Other",86.1,13.9
+"q30d","age_band_6","35-44","Other",85.9,14.1
+"q30d","age_band_6","45-54","Other",87,13
+"q30d","age_band_6","55-64","Other",87.1,12.9
+"q30d","age_band_6","65 plus","Other",90.5,9.5
+"q30e","age_band_6","17-24","Unpaid cair from friends/family",55.4,44.6
+"q30e","age_band_6","25-34","Unpaid cair from friends/family",53.5,46.5
+"q30e","age_band_6","35-44","Unpaid cair from friends/family",52.1,47.9
+"q30e","age_band_6","45-54","Unpaid cair from friends/family",53.9,46.1
+"q30e","age_band_6","55-64","Unpaid cair from friends/family",52.7,47.3
+"q30e","age_band_6","65 plus","Unpaid cair from friends/family",54.4,45.6
