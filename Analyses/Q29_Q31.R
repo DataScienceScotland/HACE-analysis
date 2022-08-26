@@ -35,22 +35,6 @@ ANALYSIS_Q29_toplevel <-
   select(-var, -deff) %>%
   pivot_wider(names_from = "response", values_from = "mean")
 
-# ANALYSIS_Q29_toplevel <- national_results_output %>% 
-#   mutate(question = case_when(question == "q29a"~"Yes,help for me with personal tasks",
-#                               question == "q29b"~"Yes, help for me with household tasks",
-#                               question == "q29c"~"Yes, help for me for activities outside my home",
-#                               question == "q29d"~"Yes, help for me with adaptations, and/or equipment for my home",
-#                               question == "q29e"~"Yes, an alarm service that can get me help",
-#                               question == "q29f"~"Yes, help to look after someone else",
-#                               question == "q29g"~"No, not had any help but I feel that I needed it",
-#                               T~"No, not had any help"),
-#          response = case_when(str_detect(var, "1")~1, 
-#                               T~0),
-#          mean = round(mean*100,1)) %>% 
-#   select(-var, -deff) %>%
-#   pivot_wider(names_from = "response", values_from = "mean")
-
-
 ####
 
 ## by sex
@@ -62,19 +46,6 @@ ANALYSIS_Q29_bysex <- responsenames(rbind(q29a_by_sex, q29b_by_sex, q29c_by_sex,
   mutate(`0` = round(analysis_var0*100,1),
          `1` = round(analysis_var1*100,1)) %>% 
   select(8,9,10,11,12,13)
-
-# ANALYSIS_Q29_bysex <- rbind(q29a_by_sex, q29b_by_sex, q29c_by_sex, q29d_by_sex, q29e_by_sex, q29f_by_sex, q29g_by_sex,q29h_by_sex) %>% 
-#   mutate(question = case_when(question == "q29a"~"Yes,help for me with personal tasks",
-#                               question == "q29b"~"Yes, help for me with household tasks",
-#                               question == "q29c"~"Yes, help for me for activities outside my home",
-#                               question == "q29d"~"Yes, help for me with adaptations, and/or equipment for my home",
-#                               question == "q29e"~"Yes, an alarm service that can get me help",
-#                               question == "q29f"~"Yes, help to look after someone else",
-#                               question == "q29g"~"No, not had any help but I feel that I needed it",
-#                               T~"No, not had any help"),
-#          `0` = round(analysis_var0*100,1),
-#          `1` = round(analysis_var1*100,1)) %>% 
-#   select(8,9,10,11,12)
 
 
 
@@ -98,38 +69,6 @@ ANALYSIS_Q29_byage <-
   mutate(`0` = round(analysis_var0*100,1),
          `1` = round(analysis_var1*100,1)) %>% 
   select(8,9,10,11,12,13) 
-# %>% 
-#   pivot_longer(names_to ="cat", values_to = "prop", 4:5) %>% 
-#   ggplot(aes(x=cat, y=prop))+
-#   geom_col(position = "dodge")+
-#   theme_bw()+
-#   facet_wrap(~var) +
-#   coord_flip()
-
-
-# ANALYSIS_Q29_byage <-
-#   rbind(
-#     q29a_by_age_band_6,
-#     q29b_by_age_band_6,
-#     q29c_by_age_band_6,
-#     q29d_by_age_band_6,
-#     q29e_by_age_band_6,
-#     q29f_by_age_band_6,
-#     q29g_by_age_band_6,
-#     q29h_by_age_band_6) %>%
-#   mutate(question = case_when(question == "q29a" ~ "Yes,help for me with personal tasks",
-#                               question == "q29b" ~ "Yes, help for me with household tasks",
-#                               question == "q29c" ~ "Yes, help for me for activities outside my home",
-#                               question == "q29d" ~ "Yes, help for me with adaptations, and/or equipment for my home",
-#                               question == "q29e" ~ "Yes, an alarm service that can get me help",
-#                               question == "q29f" ~ "Yes, help to look after someone else",
-#                               question == "q29g" ~ "No, not had any help but I feel that I needed it",
-#                               T ~ "No, not had any help"),
-#          `0` = round(analysis_var0*100,1),
-#          `1` = round(analysis_var1*100,1)) %>% 
-#   select(8,9,10,11,12) 
-
-
 
 ####
 
